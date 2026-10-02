@@ -3,6 +3,18 @@ from dndgame.dice import roll
 
 
 def create_character():
+    """Create a character using interactive input.
+
+    Prompt for a name and a race, roll ability scores,
+    and apply racial bonuses.
+
+    Returns:
+        The newly created Character.
+
+    Raises:
+        ValueError: If the race choice cannot be converted to an integer.
+        IndexError: If the converted choice produces an invalid list index.
+    """
     print("Welcome to D&D Adventure!")
     name = input("Enter your character's name: ")
 
@@ -21,6 +33,14 @@ def create_character():
 
 
 def display_character(character):
+    """Display a character's name, race, ability scores, and current HP.
+
+    Args:
+        character: The Character whose details will be displayed.
+
+    Returns:
+        None.
+    """
     print(f"\n{character.name} the {character.race}")
     print("\nStats:")
     for stat, value in character.stats.items():
@@ -30,6 +50,18 @@ def display_character(character):
 
 
 def simple_combat(player):
+    """Run an interactive fight against a goblin with 5 hit points.
+
+    Args:
+        player: The player's character; currently unused.
+
+    Returns:
+        True if the goblin is defeated, or False if the player runs away.
+
+    An attack hits when a twenty-sided die result is at least 10.
+    On a hit, a four-sided die determines the damage.
+    The goblin does not attack the player.
+    """
     print("\nA goblin appears!")
     goblin_hp = 5
 
@@ -56,6 +88,14 @@ def simple_combat(player):
 
 
 def main():
+    """Create a character and run the interactive game menu.
+
+    Let the player fight a goblin, view character details,
+    or quit the game.
+
+    Returns:
+        None.
+    """
     player = create_character()
 
     while True:
